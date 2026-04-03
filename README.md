@@ -1,20 +1,26 @@
-# AI Interview Prep Web App
+# 🚀 AI Interview Prep Web App
 
-An AI-powered interview preparation web application built using Python, Flask, HTML, CSS, JavaScript, SQLite, and Gemini API.
+An AI-powered interview preparation platform that helps users practice real interview questions with instant feedback and scoring.
 
-## Features
-- Role-based interview questions
-- Difficulty selection
-- Multi-round interview flow
-- AI answer evaluation with score and feedback
-- User-specific history dashboard
-- Login and signup functionality
+## ✨ Features
+- Role-based interview questions (Frontend, Backend, etc.)
+- Difficulty selection (Beginner → Advanced)
+- Multi-round interview system (1–5 questions)
+- AI-generated feedback with scoring
+- User login & history tracking
+- Dashboard-style UI
 
-## Tech Stack
-- Python
-- Flask
-- HTML
-- CSS
-- JavaScript
+## 🛠️ Tech Stack
+- Python (Flask)
+- HTML, CSS, JavaScript
 - SQLite
 - Gemini API
+
+## 📸 Screenshots
+(Add your screenshots here later)
+
+## ▶️ How to Run
+
+```bash
+pip install -r requirements.txt
+python app.py
