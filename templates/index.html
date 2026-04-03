@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Interview Prep</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body class="premium-body">
+  <div class="bg-blur bg-blur-1"></div>
+  <div class="bg-blur bg-blur-2"></div>
+
+  <header class="site-header site-header-solid">
+    <div class="logo">AI Interview Prep</div>
+    <nav class="main-nav">
+      <a href="/">Home</a>
+      <a href="#contact">Contact</a>
+
+      {% if user %}
+        <a href="/history">History</a>
+        <a href="/logout">Logout</a>
+      {% else %}
+        <a href="/login">Login</a>
+        <a href="/signup">Signup</a>
+      {% endif %}
+    </nav>
+  </header>
+
+  <main class="hero-shell compact-home-shell">
+    <section class="hero-panel refined-hero-panel">
+      <div class="hero-left">
+        <span class="badge">AI Powered Interview Practice</span>
+        <h1>Sharpen your interview skills with a smart, modern preparation platform.</h1>
+        <p class="hero-text">
+          Practice role-based interview rounds, get structured AI feedback, track your scores,
+          and improve across multiple questions in one professional workflow.
+        </p>
+
+        <div class="feature-cards">
+          <div class="mini-card">
+            <h3>Multi-Round Interviews</h3>
+            <p>Choose 1 to 5 questions and complete realistic interview rounds.</p>
+          </div>
+          <div class="mini-card">
+            <h3>AI Evaluation</h3>
+            <p>Receive detailed strengths, mistakes, better answers, and scores.</p>
+          </div>
+          <div class="mini-card">
+            <h3>Personal Dashboard</h3>
+            <p>Your history is private to your account with filters and deletion controls.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <form action="/start" method="POST" class="premium-form">
+          <div class="form-header">
+            <h2>Start Interview Session</h2>
+            <p>Fill in your details and begin a focused interview round.</p>
+          </div>
+
+          <div class="premium-grid">
+            <div class="field">
+              <label for="full_name">Full Name</label>
+              <input
+                type="text"
+                id="full_name"
+                name="full_name"
+                placeholder="Enter your full name"
+                value="{{ user.name if user else '' }}"
+                required
+              />
+            </div>
+
+            <div class="field">
+              <label for="email">Email</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Enter your email"
+                value="{{ user.email if user else '' }}"
+                required
+              />
+            </div>
+
+            <div class="field">
+              <label for="role">Role</label>
+              <select id="role" name="role" required>
+                <option value="">Select role</option>
+                <option value="Frontend Developer">Frontend Developer</option>
+                <option value="Backend Developer">Backend Developer</option>
+                <option value="Full Stack Developer">Full Stack Developer</option>
+                <option value="Python Developer">Python Developer</option>
+                <option value="Java Developer">Java Developer</option>
+                <option value="React Developer">React Developer</option>
+                <option value="PHP Developer">PHP Developer</option>
+                <option value="SQL Developer">SQL Developer</option>
+                <option value="Data Analyst">Data Analyst</option>
+                <option value="Software Tester">Software Tester</option>
+                <option value="Machine Learning Engineer">Machine Learning Engineer</option>
+                <option value="UI/UX Designer">UI/UX Designer</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="difficulty">Difficulty</label>
+              <select id="difficulty" name="difficulty" required>
+                <option value="">Select difficulty</option>
+                <option value="Beginner">Beginner</option>
+                <option value="Intermediate">Intermediate</option>
+                <option value="Advanced">Advanced</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="interview_type">Interview Type</label>
+              <select id="interview_type" name="interview_type" required>
+                <option value="">Select interview type</option>
+                <option value="Technical">Technical</option>
+                <option value="HR">HR</option>
+                <option value="Mixed">Mixed</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="question_count">Number of Questions</label>
+              <select id="question_count" name="question_count" required>
+                <option value="">Select count</option>
+                <option value="1">1 Question</option>
+                <option value="2">2 Questions</option>
+                <option value="3">3 Questions</option>
+                <option value="4">4 Questions</option>
+                <option value="5">5 Questions</option>
+              </select>
+            </div>
+
+            <div class="field field-full">
+              <label for="focus_topic">Focus Topic</label>
+              <input
+                type="text"
+                id="focus_topic"
+                name="focus_topic"
+                placeholder="Example: HTML, CSS, JavaScript, OOP, SQL, React..."
+              />
+            </div>
+          </div>
+
+          {% if user %}
+            <button type="submit" class="premium-btn">Start Interview</button>
+          {% else %}
+            <a href="/login" class="premium-link-btn full-width-btn">Login to Start Interview</a>
+          {% endif %}
+        </form>
+      </div>
+    </section>
+
+    <section class="contact-strip" id="contact">
+      <div class="contact-strip-card">
+        <div class="contact-strip-head">
+          <span class="contact-badge">📬 Contact</span>
+          <h2>Reach out for support, feedback, or collaboration</h2>
+        </div>
+
+        <div class="contact-strip-grid">
+          <div class="contact-strip-item">
+            <div class="contact-strip-icon">📧</div>
+            <div>
+              <h3>Email</h3>
+              <p>support@aiinterviewprep.com</p>
+            </div>
+          </div>
+
+          <div class="contact-strip-item">
+            <div class="contact-strip-icon">📞</div>
+            <div>
+              <h3>Phone</h3>
+              <p>+91 8200615371</p>
+            </div>
+          </div>
+
+          <div class="contact-strip-item">
+            <div class="contact-strip-icon">📍</div>
+            <div>
+              <h3>Location</h3>
+              <p>Vadodara, Gujarat, India</p>
+            </div>
+          </div>
+
+          <div class="contact-strip-item">
+            <div class="contact-strip-icon">🔗</div>
+            <div>
+              <h3>LinkedIn</h3>
+              <p>linkedin.com/in/soni-vrajesh-a579811a3</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

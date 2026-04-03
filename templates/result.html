@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Final Interview Result</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body class="page-body">
+  <div class="page-container wide-container">
+    <div class="top-bar">
+      <h1>Final Interview Result</h1>
+      <a href="/" class="ghost-btn">Back Home</a>
+    </div>
+
+    <div class="page-subtitle">
+      <p>Your complete interview session summary and final performance overview.</p>
+    </div>
+
+    <div class="result-layout">
+      <div class="glass-card score-card">
+        <p class="score-title">Average Score</p>
+        <div class="score-circle">{{ avg_score }}/10</div>
+        <p class="score-text">Total Score: {{ total_score }} across {{ total_rounds }} questions.</p>
+      </div>
+
+      <div class="glass-card result-info">
+        <h2>Session Summary</h2>
+        <div class="summary-grid">
+          <div><span>Name</span><strong>{{ full_name }}</strong></div>
+          <div><span>Email</span><strong>{{ email }}</strong></div>
+          <div><span>Role</span><strong>{{ role }}</strong></div>
+          <div><span>Difficulty</span><strong>{{ difficulty }}</strong></div>
+          <div><span>Type</span><strong>{{ interview_type }}</strong></div>
+          <div><span>Questions</span><strong>{{ question_count }}</strong></div>
+          <div><span>Focus</span><strong>{{ focus_topic or 'General' }}</strong></div>
+          <div><span>Total Rounds</span><strong>{{ total_rounds }}</strong></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="results-stack">
+      {% for item in results %}
+      <div class="glass-card result-round-card">
+        <div class="result-round-head">
+          <h2>Question {{ loop.index }}</h2>
+          <span class="score-pill">{{ item.score }}/10</span>
+        </div>
+
+        <div class="content-block">
+          <h3>Question</h3>
+          <p>{{ item.question }}</p>
+        </div>
+
+        <div class="content-block">
+          <h3>Your Answer</h3>
+          <p>{{ item.answer }}</p>
+        </div>
+
+        <div class="content-block">
+          <h3>AI Feedback</h3>
+          <pre class="feedback-box">{{ item.feedback }}</pre>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    <div class="action-row">
+      <a href="/" class="premium-link-btn">Start New Interview</a>
+      <a href="/history" class="premium-link-btn secondary">Open History</a>
+    </div>
+  </div>
+</body>
+</html>

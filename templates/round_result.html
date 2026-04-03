@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Round Result</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body class="page-body">
+  <div class="page-container wide-container">
+    <div class="top-bar">
+      <h1>Round {{ current_done }} Completed</h1>
+      <a href="/" class="ghost-btn">Back Home</a>
+    </div>
+
+    <div class="page-subtitle">
+      <p>Review your feedback for this round, then continue to the next question.</p>
+    </div>
+
+    <div class="result-layout">
+      <div class="glass-card score-card">
+        <p class="score-title">Round Score</p>
+        <div class="score-circle">{{ score }}/10</div>
+        <p class="score-text">{{ current_done }} of {{ total_rounds }} rounds completed.</p>
+      </div>
+
+      <div class="glass-card result-info">
+        <h2>Round Summary</h2>
+        <div class="summary-grid">
+          <div><span>Role</span><strong>{{ role }}</strong></div>
+          <div><span>Difficulty</span><strong>{{ difficulty }}</strong></div>
+          <div><span>Type</span><strong>{{ interview_type }}</strong></div>
+          <div><span>Focus</span><strong>{{ focus_topic or 'General' }}</strong></div>
+        </div>
+
+        <div class="content-block">
+          <h3>Question</h3>
+          <p>{{ question }}</p>
+        </div>
+
+        <div class="content-block">
+          <h3>Your Answer</h3>
+          <p>{{ answer }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="glass-card feedback-card">
+      <h2>AI Feedback</h2>
+      <pre class="feedback-box">{{ feedback }}</pre>
+    </div>
+
+    <div class="action-row">
+      <a href="/interview-round" class="premium-link-btn">Next Question</a>
+      <a href="/history" class="premium-link-btn secondary">View History</a>
+    </div>
+  </div>
+</body>
+</html>

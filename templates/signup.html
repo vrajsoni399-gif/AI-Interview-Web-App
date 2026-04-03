@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Signup - AI Interview Prep</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body class="auth-body">
+  <div class="auth-wrapper">
+    <div class="auth-card">
+      <div class="auth-left">
+        <span class="badge">Create Your Account</span>
+        <h1>Start Strong</h1>
+        <p>Sign up and unlock your personalized AI-powered mock interview workflow.</p>
+      </div>
+
+      <div class="auth-right">
+        <form action="/signup" method="POST" class="auth-form">
+          <h2>Signup</h2>
+
+          <div class="field">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" placeholder="Enter your full name" required />
+          </div>
+
+          <div class="field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required />
+          </div>
+
+          <div class="field">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="Create password" required />
+          </div>
+
+          <div class="field">
+            <label for="confirm_password">Confirm Password</label>
+            <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm password" required />
+          </div>
+
+          <button type="submit" class="premium-btn">Create Account</button>
+
+          <p class="auth-bottom-text">
+            Already have an account?
+            <a href="/login">Login</a>
+          </p>
+
+          <a href="/" class="ghost-link">Back to Home</a>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Interview Round</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body class="page-body">
+  <div class="page-container wide-container">
+    <div class="top-bar">
+      <h1>Interview Round {{ current_round }} / {{ total_rounds }}</h1>
+      <a href="/" class="ghost-btn">Back Home</a>
+    </div>
+
+    <div class="page-subtitle">
+      <p>Answer each question clearly and professionally as if you are in a real interview.</p>
+    </div>
+
+    <div class="info-layout">
+      <div class="glass-card info-card">
+        <h2>Session Details</h2>
+        <div class="details-grid">
+          <div><span>Name</span><strong>{{ full_name }}</strong></div>
+          <div><span>Email</span><strong>{{ email }}</strong></div>
+          <div><span>Role</span><strong>{{ role }}</strong></div>
+          <div><span>Difficulty</span><strong>{{ difficulty }}</strong></div>
+          <div><span>Interview Type</span><strong>{{ interview_type }}</strong></div>
+          <div><span>Total Questions</span><strong>{{ question_count }}</strong></div>
+          <div><span>Focus Topic</span><strong>{{ focus_topic or 'General' }}</strong></div>
+          <div><span>Current Round</span><strong>{{ current_round }} / {{ total_rounds }}</strong></div>
+        </div>
+      </div>
+
+      <div class="glass-card question-card">
+        <h2>Question</h2>
+        <p class="question-box">{{ question }}</p>
+      </div>
+    </div>
+
+    <form action="/submit-answer" method="POST" class="glass-card answer-card">
+      <label for="answer" class="big-label">Your Answer</label>
+      <textarea
+        name="answer"
+        id="answer"
+        rows="11"
+        placeholder="Type your answer here in a professional interview style..."
+        required
+      ></textarea>
+
+      <button type="submit" class="premium-btn">Submit This Answer</button>
+    </form>
+  </div>
+</body>
+</html>

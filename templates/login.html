@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login - AI Interview Prep</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body class="auth-body">
+  <div class="auth-wrapper">
+    <div class="auth-card">
+      <div class="auth-left">
+        <span class="badge">Secure Access</span>
+        <h1>Welcome Back</h1>
+        <p>Login to continue your interview preparation journey and access your personal history dashboard.</p>
+      </div>
+
+      <div class="auth-right">
+        <form action="/login" method="POST" class="auth-form">
+          <h2>Login</h2>
+
+          <div class="field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required />
+          </div>
+
+          <div class="field">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="Enter your password" required />
+          </div>
+
+          <button type="submit" class="premium-btn">Login</button>
+
+          <p class="auth-bottom-text">
+            Don’t have an account?
+            <a href="/signup">Create one</a>
+          </p>
+
+          <a href="/" class="ghost-link">Back to Home</a>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
